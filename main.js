@@ -22,7 +22,15 @@ function initSite() {
 function addProductsToWebpage() {
     // Check your console to see that the products are stored in the listOfProducts varible.
     console.log(listOfProducts);
+    
+    
 
+    for (let i = 0; i < listOfProducts.length; i++) {
+        const productList = listOfProducts[i];
+        
+        let title = document.createElement("title");
+        console.log(productList)
+    }
     // Add your code here, remember to brake your code in to smaller function blocks
     // to reduce complexity and increase readability. Each function should have
     // an explainetory comment like the one for this function, see row 22.
