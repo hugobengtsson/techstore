@@ -26,35 +26,35 @@ function addProductsToWebpage() {
     
 
     var imgSrc = "/assets/"
-    
-    
+
+
     let main = document.getElementsByTagName("main")[0];
-    
-    listOfProducts.forEach((productList) => {
 
+    listOfProducts.forEach((product) => {
 
-        let title = listOfProducts.title
 
         let productContainer = document.createElement("div")
         productContainer.classList.add("productContainer")
 
+        let title = product.title
         let titleText = document.createElement("h2")
         titleText.classList.add("titleText")
         titleText.innerText = title
 
-        let description =  listOfProducts.description
 
+        let description =  product.description
         let descriptionText = document.createElement("p")
         descriptionText.classList.add("descriptionText")
         descriptionText.innerText = description
 
-        let image = listOfProducts.image
 
+        let image = product.image
         let productImage = document.createElement("img")
         productImage.src= imgSrc + image
         productImage.classList.add("productImgage")
 
-        let price = listOfProducts.price
+
+        let price = product.price
         let productPrice = document.createElement("p")
         productPrice.classList.add("productPrice")
         productPrice.innerText = price + " kr"
