@@ -8,25 +8,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Visit www.fontawesome.com on how to add font icons to your project -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         <script src="./main.js"></script>
     </head>
     <body onload="initSite()">
         <header>
+           <nav>
+               <div>
+                   <h1>TechStore</h1>
+                </div>
+                <div class="cartNavContainer">
+                    <span id="addToCartNumber"></span>
+                    <i class="fas fa-cart-arrow-down" ></i>
+                </div>
+           </nav>
             <!-- Your header title and shopping cart button goes here  -->
         </header>
-        <div class="container">
-            <div class="products-item">
-                <div><h1>title</h1></div>
-                <div><h2>description</h2></div>
-                <div><img src="./assets/iPhoneX.png" alt="" srcset=""></div>
-                <div><h3>price</h3></div>
-                <div><button>KÖP</button></div>
-            </div>
-        </div>
-        <main>
+        <main class="data-product-container">
             <!-- Add the content of your site here via javascript -->
         </main>
-
     </body>
 </html>
