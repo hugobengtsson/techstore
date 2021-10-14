@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
+
     
 }
 
@@ -32,7 +32,7 @@ p {
     display: flex;
     justify-content: center;
     text-align: center;   
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .product-item {
@@ -40,12 +40,13 @@ p {
     justify-content: center;
     justify-items: center;
     flex-direction: column;
-   
-    
+
+
 }
 
 .product-item > {
     padding: 40px;
+
 }
 
 .product-item img {
@@ -74,19 +75,22 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
 nav div {
     margin: 0 2% 0 2%;
     display: flex;
-   
+
 }
 
 nav i {
     font-size: 30px;
 }
 
+header {
+    height: 75px;
+}
 
 
 .cartNavContainer {
