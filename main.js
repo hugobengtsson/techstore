@@ -1,3 +1,5 @@
+import { addQuantity } from './common.js'
+
 var listOfProducts;
 
 /** Get products from the json file and store it in a gobal variable */
@@ -20,6 +22,7 @@ let initSite = () => {
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
+
     // Check your console to see that the products are stored in the listOfProducts varible.
     let imgSrc = "/assets/"
     let productContainer = document.getElementsByClassName("data-product-container")[0];
@@ -109,24 +112,6 @@ function addToCart(product){
 
     localStorage.setItem("cart", JSON.stringify(cart))
 
-}
-
-function addQuantity(){
-
-    let cart = JSON.parse(localStorage.getItem("cart"))
-
-    let quantity = 0
-    if (cart){
-
-        cart.forEach((product) => {
-
-        quantity = quantity + Number(product.quantity)
-
-        })
-    } else {
-
-    }
-    document.getElementById("addToCartNumber").innerText = quantity;
 }
 
 window.addEventListener("load", initSite)
