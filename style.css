@@ -188,3 +188,19 @@ nav a {
     display: flex;
     justify-content: center;
 }
+
+
+/*---- cart-purchase ----- */
+
+.cart-purchase-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(50, 85, 241, 0.815);
+    color: white;
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
+
+    
+}
