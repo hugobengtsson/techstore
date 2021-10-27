@@ -1,5 +1,6 @@
 import { addQuantity } from './common.js'
 
+
 let imgSrc = "/assets/"
 
 let initSite = () => {
@@ -10,26 +11,24 @@ let initSite = () => {
 function loadCart(){
 
     let cart = JSON.parse(localStorage.getItem("cart"))
-    let cartContainer = document.getElementsByClassName("data-cart-container")[0]
+    let cartContainer = document.getElementsByClassName("product-cart-container")[0]
 
-
-
+    /// test for total price in cart
+    let cartTotalPriceContainer = document.getElementsByClassName("cart-total-price")[0]
+    
+    
     if(cart){
 
         cart.forEach((product) => {
 
-            // Bör tas bort vid version 2.0..
-            let container = document.createElement('div')
-            container.classList.add('product-container')
+         
+            //PRODUCT CART ITEM
 
             let productItems = document.createElement('div')
-            productItems.classList.add('product-item')
+            productItems.classList.add('product-cart-item')
 
             let productTitle = document.createElement('h1')
             productTitle.innerText = product.product.title
-
-            let productDescription = document.createElement('h2')
-            productDescription.innerText = product.product.description
 
             let productImage = document.createElement('img')
             productImage.src = imgSrc + product.product.image
@@ -37,24 +36,81 @@ function loadCart(){
             let productPrice = document.createElement('p')
             productPrice.innerText = product.product.price + ' kr'
 
+            let quantityContainer = document.createElement('div')
+            quantityContainer.classList.add('quantity-contianer')
+
+            let productMinusQuantity = document.createElement('i')
+            productMinusQuantity.classList.add('fas', 'fa-minus')
+
             let productQuantity = document.createElement('p')
-            productQuantity.innerText = product.quantity + ' st'
+            productQuantity.innerText = product.quantity 
+
+            let productPlusQuantity = document.createElement('i')
+            productPlusQuantity.classList.add('fas', 'fa-plus')
 
             let productButtonContainer = document.createElement('div')
-            productButtonContainer.classList.add('product-button-container')
+            productButtonContainer.classList.add('cart-button-container')
 
-            productItems.append(productTitle, productDescription, productImage, productPrice, productQuantity, productButtonContainer)
-            container.append(productItems)
-            cartContainer.append(container)
+            let productButtonIcon = document.createElement('i')
+            productButtonIcon.classList.add('far', 'fa-trash-alt')
 
+            let productButtonText = document.createElement('p')
+            productButtonText.innerText = 'Ta bort'
+            
+        
+
+            productButtonContainer.addEventListener('click', function() {
+                productItems.remove()
+               
+                
+            })
+            
+            productButtonContainer.append(productButtonIcon,productButtonText)
+            quantityContainer.append( productMinusQuantity, productQuantity, productPlusQuantity)
+            productItems.append( /* productDescription, */ productImage, productTitle, productPrice, quantityContainer, productButtonContainer)
+            cartContainer.append(productItems)
+            
+            // CART TOTAL PRICE
+            /* cartTotalPriceContainer.innerText = 'Total pris:' +  + ' kr' */
+            /* console.log(product.product.price * product.quantity) */
+            addTotalPrice()
+            
         })
     }else{
-        console.log("varukorgen är tom")
+            console.log("varukorgen är tom")
+            let cartIsEmptyContainer = document.createElement('div')
+            cartIsEmptyContainer.classList.add('product-cart-container')
+
+            let cartIsEmptyText = document.createElement('h1')
+            cartIsEmptyText.innerText = 'Varukorgen är tom'
+
+          
+
+            cartIsEmptyContainer.append(cartIsEmptyText)
+            cartContainer.append(cartIsEmptyContainer)
     }
 
 }
+//test används inte
+function addTotalPrice(){
 
+    let cart = JSON.parse(localStorage.getItem("cart"))
 
+    let price = 0
+    if(cart) {
+
+        cart.forEach((product) => {
+
+        price = Number(product.product.price) * Number(product.quantity)
+        console.log(price)
+        })
+    } else {
+        /* cart.forEach((product) => {
+
+        } */
+    }
+    document.getElementsByClassName("cart-total-price")[0].innerText = 'Total pris:' + price + ' kr'
+}
 
 
 window.addEventListener("load", initSite)
