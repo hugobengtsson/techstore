@@ -39,14 +39,33 @@ function loadCart(){
             let quantityContainer = document.createElement('div')
             quantityContainer.classList.add('quantity-contianer')
 
-            let productMinusQuantity = document.createElement('i')
-            productMinusQuantity.classList.add('fas', 'fa-minus')
+            let productPlusQuantity = document.createElement('i')
+            productPlusQuantity.classList.add('fas', 'fa-plus')
+            productPlusQuantity.addEventListener('click', function(){
+
+                let action = "+"
+
+                changeQuantity(product, action)
+
+            })
 
             let productQuantity = document.createElement('p')
             productQuantity.innerText = product.quantity 
 
-            let productPlusQuantity = document.createElement('i')
-            productPlusQuantity.classList.add('fas', 'fa-plus')
+            let productMinusQuantity = document.createElement('i')
+            productMinusQuantity.classList.add('fas', 'fa-minus')
+            if(product.quantity == 1){
+                productMinusQuantity.style.color = "lightgrey"
+            }
+            else{
+                productMinusQuantity.addEventListener('click', function(){
+    
+                    let action = "-"
+    
+                    changeQuantity(product, action, productMinusQuantity)
+    
+                })
+            }
 
             let productButtonContainer = document.createElement('div')
             productButtonContainer.classList.add('cart-button-container')
@@ -56,10 +75,9 @@ function loadCart(){
 
             let productButtonText = document.createElement('p')
             productButtonText.innerText = 'Ta bort'
-            
-        
 
             productButtonContainer.addEventListener('click', function() {
+
                 removeCartItem(product)
 
             })
@@ -72,7 +90,7 @@ function loadCart(){
             addTotalPrice()
             
         })
-        
+
     }else{
             
             let cartIsEmptyContainer = document.createElement('div')
@@ -98,9 +116,34 @@ function addTotalPrice(){
     cart.forEach((product) => {
 
     price = price + (product.product.price * product.quantity)
+    
     })
     
     document.getElementsByClassName("cart-total-price")[0].innerText = 'Total pris:' + price + ' kr'
+}
+
+function changeQuantity(product, action, productMinusQuantity){
+
+    let cart = JSON.parse(localStorage.getItem("cart"))
+
+    let foundIndex = cart.findIndex(cartItem => cartItem.product.title == product.product.title)
+
+    if(action=="+"){
+        cart[foundIndex].quantity++
+    }
+    else{
+        if(cart[foundIndex].quantity == 1){
+            
+        }
+        else{
+            cart[foundIndex].quantity = cart[foundIndex].quantity - 1
+        }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart))
+    addTotalPrice()
+    addQuantity()
+    loadCart()
 }
 
 function removeCartItem(product) {
@@ -120,7 +163,6 @@ function removeCartItem(product) {
 
     loadCart()
     addQuantity()
-    addTotalPrice()
 }
 
 
