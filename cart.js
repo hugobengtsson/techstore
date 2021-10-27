@@ -12,7 +12,7 @@ function loadCart(){
 
     let cart = JSON.parse(localStorage.getItem("cart"))
     let cartContainer = document.getElementsByClassName("product-cart-container")[0]
-
+    cartContainer.innerHTML = ''
     /// test for total price in cart
     let cartTotalPriceContainer = document.getElementsByClassName("cart-total-price")[0]
     
@@ -66,28 +66,29 @@ function loadCart(){
             
             productButtonContainer.append(productButtonIcon,productButtonText)
             quantityContainer.append( productMinusQuantity, productQuantity, productPlusQuantity)
-            productItems.append( /* productDescription, */ productImage, productTitle, productPrice, quantityContainer, productButtonContainer)
+            productItems.append( productImage, productTitle, productPrice, quantityContainer, productButtonContainer)
             cartContainer.append(productItems)
             
             addTotalPrice()
             
         })
+        
     }else{
-            console.log("varukorgen är tom")
+            
             let cartIsEmptyContainer = document.createElement('div')
             cartIsEmptyContainer.classList.add('product-cart-container')
 
             let cartIsEmptyText = document.createElement('h1')
             cartIsEmptyText.innerText = 'Varukorgen är tom'
 
-
+            cartTotalPriceContainer.innerText = ''
 
             cartIsEmptyContainer.append(cartIsEmptyText)
             cartContainer.append(cartIsEmptyContainer)
     }
 
 }
-//test används inte
+
 function addTotalPrice(){
 
     let cart = JSON.parse(localStorage.getItem("cart"))
@@ -117,11 +118,9 @@ function removeCartItem(product) {
         localStorage.setItem("cart", JSON.stringify(cart))
     }
 
-
-    location.reload()
-    //cartContainer.remove()
-    // document.getElementsByClassName("product-cart-container").reload()
-
+    loadCart()
+    addQuantity()
+    addTotalPrice()
 }
 
 
