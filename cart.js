@@ -21,7 +21,7 @@ function loadCart(){
 
         cart.forEach((product) => {
 
-         
+
             //PRODUCT CART ITEM
 
             let productItems = document.createElement('div')
@@ -60,9 +60,8 @@ function loadCart(){
         
 
             productButtonContainer.addEventListener('click', function() {
-                productItems.remove()
-               
-                
+                removeCartItem(product)
+
             })
             
             productButtonContainer.append(productButtonIcon,productButtonText)
@@ -70,9 +69,6 @@ function loadCart(){
             productItems.append( /* productDescription, */ productImage, productTitle, productPrice, quantityContainer, productButtonContainer)
             cartContainer.append(productItems)
             
-            // CART TOTAL PRICE
-            /* cartTotalPriceContainer.innerText = 'Total pris:' +  + ' kr' */
-            /* console.log(product.product.price * product.quantity) */
             addTotalPrice()
             
         })
@@ -84,7 +80,7 @@ function loadCart(){
             let cartIsEmptyText = document.createElement('h1')
             cartIsEmptyText.innerText = 'Varukorgen är tom'
 
-          
+
 
             cartIsEmptyContainer.append(cartIsEmptyText)
             cartContainer.append(cartIsEmptyContainer)
@@ -97,19 +93,35 @@ function addTotalPrice(){
     let cart = JSON.parse(localStorage.getItem("cart"))
 
     let price = 0
-    if(cart) {
 
-        cart.forEach((product) => {
+    cart.forEach((product) => {
 
-        price = Number(product.product.price) * Number(product.quantity)
-        console.log(price)
-        })
-    } else {
-        /* cart.forEach((product) => {
-
-        } */
-    }
+    price = price + (product.product.price * product.quantity)
+    })
+    
     document.getElementsByClassName("cart-total-price")[0].innerText = 'Total pris:' + price + ' kr'
+}
+
+function removeCartItem(product) {
+
+    let cart = JSON.parse(localStorage.getItem("cart"))
+
+    let foundIndex = cart.findIndex(cartItem => cartItem.product.title == product.product.title)
+
+    cart.splice([foundIndex], 1)
+
+    if(cart.length <= 0){
+        localStorage.removeItem("cart")
+    }
+    else{
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }
+
+
+    location.reload()
+    //cartContainer.remove()
+    // document.getElementsByClassName("product-cart-container").reload()
+
 }
 
 

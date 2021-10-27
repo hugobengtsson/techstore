@@ -133,7 +133,6 @@ nav a {
     padding: 0;
 }
 
-
 .quantity-contianer {
     display: flex;
     flex-direction: row;
@@ -170,7 +169,10 @@ nav a {
     align-items: center;
     background-color: rgba(255, 0, 0, 0.657);
     color: white;
-    
+    width: 150px;
+    margin: auto;
+    border-radius: 10px;
+
 }
 
 .cart-button-container i {
