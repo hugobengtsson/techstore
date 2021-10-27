@@ -13,11 +13,29 @@ function loadCart(){
     let cart = JSON.parse(localStorage.getItem("cart"))
     let cartContainer = document.getElementsByClassName("product-cart-container")[0]
     cartContainer.innerHTML = ''
-    /// test for total price in cart
+   
     let cartTotalPriceContainer = document.getElementsByClassName("cart-total-price")[0]
     
-    
+    let cartPurchaseButton = document.getElementsByClassName('cart-purchase-button')[0]
+    cartPurchaseButton.innerHTML = ''
+
     if(cart){
+        
+        
+
+    let cartPurchaseIcon = document.createElement('i')
+    cartPurchaseIcon.classList.add('fas', 'fa-check')
+
+    let cartPurchaseText = document.createElement('p')
+    cartPurchaseText.innerText = 'Slutför ditt köp'
+    
+
+    cartPurchaseButton.addEventListener('click', function() {
+        cartPurchase()
+
+    })
+
+    cartPurchaseButton.append(cartPurchaseIcon, cartPurchaseText)
 
         cart.forEach((product) => {
 
@@ -83,6 +101,8 @@ function loadCart(){
 
             cartTotalPriceContainer.innerText = ''
 
+            cartPurchaseButton = ''
+            
             cartIsEmptyContainer.append(cartIsEmptyText)
             cartContainer.append(cartIsEmptyContainer)
     }
@@ -123,5 +143,9 @@ function removeCartItem(product) {
     addTotalPrice()
 }
 
-
+function cartPurchase(){
+    localStorage.removeItem("cart")
+    addQuantity()
+    loadCart()
+}
 window.addEventListener("load", initSite)
