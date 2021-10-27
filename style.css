@@ -92,6 +92,11 @@ header {
     height: 75px;
 }
 
+#addToCartNumber{
+    font-size: 40px;
+    margin-right: 15px;
+}
+
 
 .cartNavContainer {
     display: flex;
@@ -104,3 +109,79 @@ nav a {
     color: white;
 }
 /* ------------*/
+
+
+
+/* CART MAIN CSS */
+
+.cartTitleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.cartTitleIcon {
+    font-size: 40px;
+}
+
+.cartTitle {
+    font-size: 50px;
+    padding: 0;
+}
+
+
+.quantity-contianer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.product-cart-container img {
+    object-fit: contain;
+    max-height: 180px;
+}
+
+.product-cart-item {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    padding: 10px;
+    border: 3px solid rgba(5, 5, 255, 0.349);
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cart-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.657);
+    color: white;
+    
+}
+
+.cart-button-container i {
+    font-size: 30px;
+
+}
+
+
+
+/*----- Total Price ------*/
+.cart-total-price-container {
+    display: flex;
+    justify-content: center;
+}

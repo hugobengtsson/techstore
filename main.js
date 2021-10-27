@@ -32,6 +32,7 @@ function addProductsToWebpage() {
 
 
     //Creating Conatiner
+    // Bör tas bort vid version 2.0..
         let container = document.createElement('div')
         container.classList.add('product-container')
         productContainer.append(container)
