@@ -27,7 +27,95 @@ p {
 
 /* --------- */
 
+
+/* Body relative & Login Styling */
+
+.relative{
+    position: relative;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
+.alignItems {
+    align-items: center;
+}
+
+.justifyContent{
+    justify-content: center;
+}
+
+.loginContainer {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.loginForm {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+
+}
+
+.closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.login{
+    height: 50%;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.createAcount {
+    height: 50%;
+    width: 100%;
+    background-color: lightgrey;
+}
+
+.usernameExists > p {
+    font-size: 14px;
+    padding: 0;
+    color: red;
+}
+
+.loginFormButton {
+    width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    background-color: rgba(50, 85, 241, 0.815);
+    text-align: center;
+    padding-top: 3px;
+    border-radius: 3px;
+}
+
+.loginText {
+    font-size: 15px;
+    padding: 10px;
+}
+
+
+
+
 /* ------------*/
+
 .product-container {
     display: flex;
     justify-content: center;
@@ -108,6 +196,24 @@ nav a {
     text-decoration: none;
     color: white;
 }
+
+.loginNavContainer {
+    margin-right: 20px;
+
+}
+
+.loginNavContainer > p {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.loginSymbol {
+    font-size: 30px;
+}
+
+
+
+
 /* ------------*/
 
 

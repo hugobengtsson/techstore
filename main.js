@@ -1,4 +1,8 @@
 import { addQuantity } from './common.js'
+import { eventListeners } from './common.js'
+import { loggedIn } from './common.js'
+
+
 
 var listOfProducts;
 
@@ -15,14 +19,17 @@ function loadProducts() {
 }
 
 let initSite = () => {
-    loadProducts();
+    loadProducts()
     addQuantity()
+    loggedIn()
+    eventListeners()
     // This would also be a good place to initialize other parts of the UI
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
-
+    
+    //openLoginDiv()
     // Check your console to see that the products are stored in the listOfProducts varible.
     let imgSrc = "/assets/"
     let productContainer = document.getElementsByClassName("data-product-container")[0];

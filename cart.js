@@ -1,11 +1,15 @@
 import { addQuantity } from './common.js'
+import { eventListeners } from './common.js'
+import { loggedIn } from './common.js'
 
 
 let imgSrc = "/assets/"
 
 let initSite = () => {
-    addQuantity()
     loadCart()
+    addQuantity()
+    loggedIn()
+    eventListeners()
 }
 
 function loadCart(){
@@ -13,7 +17,7 @@ function loadCart(){
     let cart = JSON.parse(localStorage.getItem("cart"))
     let cartContainer = document.getElementsByClassName("product-cart-container")[0]
     cartContainer.innerHTML = ''
-   
+
     let cartTotalPriceContainer = document.getElementsByClassName("cart-total-price")[0]
     
     let cartPurchaseButton = document.getElementsByClassName('cart-purchase-button')[0]
@@ -37,6 +41,7 @@ function loadCart(){
 
     cartPurchaseButton.append(cartPurchaseIcon, cartPurchaseText)
 
+        // ändra product till cartItem för att få bättre logik i variablerna
         cart.forEach((product) => {
 
 
@@ -186,8 +191,20 @@ function removeCartItem(product) {
 }
 
 function cartPurchase(){
+
+    // om loggedin = true
+
+
+
+    // beställningar ska sparas och visas i cart
+    // beställningarna måste även spara vilket användarnamn som gjort beställningen
+    // och bara rendera ut de beställningar som är gjorda med det kontot
+
+
     localStorage.removeItem("cart")
     addQuantity()
     loadCart()
 }
+
+
 window.addEventListener("load", initSite)
