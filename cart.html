@@ -1,27 +1,57 @@
 <!DOCTYPE HTML>
-
 <html>
     <head>
         <title>TechStore</title>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Visit www.fontawesome.com on how to add font icons to your project -->
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
         <script type="module" src="./cart.js" defer></script>
     </head>
-    <body>
+    <body class="relative">
+
+        <div class="loginContainer flexContainer alignItems justifyContent">
+            <div class="loginForm flexContainer alignItems">
+                <i class="fas fa-times-circle closeIcon"></i>
+                    <h2>Logga in</h2>
+                    <form class="login flexContainer flexColumn alignItems">
+                        <p class="loginText">Användarnamn</p>
+                        <input type="text" id="username" required>
+                        <p class="loginText">Lösenord</p>
+                        <input type="password" id="password" required>
+                        <div class="usernameExists"></div>
+                        <input type="submit" class="loginButton loginFormButton">
+                    </form>
+                    <form class="createAcount flexContainer flexColumn alignItems">
+                        <h2>Skapa konto</h2>
+                        <p class="loginText">Användarnamn</p>
+                        <input type="text" id="createUsername" required>
+                        <div class="usernameExists"></div>
+                        <p class="loginText">Lösenord</p>
+                        <input type="password" id="createPassword" required>
+                        <input type="submit" class="createAcountButton loginFormButton">
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <header>
             <nav>
                 <div>
                     <a href="/index.html"><h1>TechStore</h1></a>
                 </div>
                 <div class="cartNavContainer">
+
+                    <div class="loginNavContainer">
+                        <i class="fas fa-user-circle loginSymbol"></i>
+                    </div>
+
                     <span id="addToCartNumber"></span>
                     <a href="#"><i class="fas fa-shopping-cart" ></i></a>
                 </div>
