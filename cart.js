@@ -191,13 +191,40 @@ function removeCartItem(product) {
 
 function cartPurchase(){
 
+    let loggedInKey = JSON.parse(localStorage.getItem("loggedIn"))
     // om loggedin = true
+    if(loggedInKey){
 
+        if(loggedInKey.loggedIn == true){
 
+            let user = loggedInKey.username
 
-    // beställningar ska sparas och visas i cart
-    // beställningarna måste även spara vilket användarnamn som gjort beställningen
-    // och bara rendera ut de beställningar som är gjorda med det kontot
+            let accounts = JSON.parse(localStorage.getItem("accounts"))
+            
+            let cart = JSON.parse(localStorage.getItem("cart"))
+
+            let foundIndex = accounts.findIndex(account => account.username == user)
+
+            let previousOrders = accounts[foundIndex].previousOrders
+
+            if(previousOrders){
+
+                previousOrders.push(cart)
+
+                accounts[foundIndex].previousOrders = previousOrders
+
+                localStorage.setItem("accounts", JSON.stringify(accounts))
+
+            }else{
+
+                accounts[foundIndex].previousOrders = cart
+                localStorage.setItem("accounts", JSON.stringify(accounts))
+
+            }
+
+        }
+
+    }
 
 
     localStorage.removeItem("cart")
