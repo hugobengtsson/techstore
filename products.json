@@ -19,5 +19,35 @@
         "description": "Super nice and beautiful smartphone from LG.",
         "image": "LGV30.png",
         "price": 7495
+    },{
+        "title": "iPhone 13 Pro Max",
+        "description": "The latest iPhone for professional users",
+        "image": "iphone-13-pro-max.png",
+        "price": 13495
+    },{
+        "title": "iPhone 13",
+        "description": "The latest iPhone for everyday users.",
+        "image": "iphone-13.png",
+        "price": 9795
+    },{
+        "title": "iPhone 13 mini",
+        "description": "The smaller iPhone for everyday users.",
+        "image": "iphone-13-mini.png",
+        "price": 8595
+    },{
+        "title": "Galaxy Z Fold3",
+        "description": "The foldable phone from Samsung.",
+        "image": "zfold3.png",
+        "price": 19490
+    },{
+        "title": "Galaxy Z Flip",
+        "description": "Flip and close your phone like in the old days.",
+        "image": "zflip3.png",
+        "price": 11490
+    },{
+        "title": "Xiaomi 11T Pro",
+        "description": "The latest phone from Xiaomi.",
+        "image": "xiaomi-11t-pro.png",
+        "price": 6990
     }
 ]

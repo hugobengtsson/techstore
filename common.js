@@ -47,7 +47,7 @@ function openLogInDiv(){
     if(localStorage.getItem("loggedIn")){
 
         let loggedInKey = JSON.parse(localStorage.getItem("loggedIn"))
-        console.log(loggedInKey.loggedIn)
+        
         if(loggedInKey.loggedIn == true){
 
         }
@@ -106,8 +106,8 @@ export function registerAccount(event){
             let existingUsername = document.createElement("p")
             existingUsername.innerText = "Användarnamnet är upptaget"
 
-            document.getElementsByClassName("usernameExists")[0].innerText = ""
-            document.getElementsByClassName("usernameExists")[0].append(existingUsername)
+            document.getElementsByClassName("usernameExists")[1].innerText = ""
+            document.getElementsByClassName("usernameExists")[1].append(existingUsername)
 
         }
         else{
@@ -157,8 +157,8 @@ function logIn(event){
                 existingUsername.innerText = "Fel användarnamn eller lösenord"
     
                 document.getElementsByClassName("usernameExists")[0].innerText = ""
-                document.getElementsByClassName("usernameExists")[0].append(existingUsername)                }
-
+                document.getElementsByClassName("usernameExists")[0].append(existingUsername)                
+            }
             }
     }
     else{
@@ -215,7 +215,5 @@ export function eventListeners() {
         closeLogInDiv()
 
     })
-
-
 
 }
