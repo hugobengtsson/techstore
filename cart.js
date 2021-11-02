@@ -212,10 +212,6 @@ function loadCart(){
                         let previousOrdersPrice = document.createElement('p')
                         previousOrdersPrice.innerText = orderItems.product.price + ' kr'
 
-                        // Rendering quantity container
-                        let previousOrdersQuantityContainer = document.createElement('div')
-                        previousOrdersQuantityContainer.classList.add('previous-orders-quantity-contianer')
-
                         // Rendering quantity
                         let previousOrdersProductQuantity = document.createElement('p')
                         previousOrdersProductQuantity.innerText = orderItems.quantity + ' st'
@@ -223,9 +219,7 @@ function loadCart(){
                         // Appending the rendered elements to the parent elements
                         previousOrdersContainer.append(previousOrdersItemConatiner)
                         previousOrdersItemConatiner.append(previousOrdersItems)
-                        previousOrdersItems.append(previousOrdersImage, previousOrdersTitle, previousOrdersPrice, previousOrdersQuantityContainer)
-                        previousOrdersQuantityContainer.append(previousOrdersProductQuantity)
-                        
+                        previousOrdersItems.append(previousOrdersImage, previousOrdersTitle, previousOrdersPrice, previousOrdersProductQuantity)   
                     })
                 })
             }
