@@ -220,7 +220,7 @@ header {
 .cartNavContainer {
     display: flex;
     align-items: center;
-      
+
 }
 
 nav a {
@@ -230,11 +230,13 @@ nav a {
 
 .loginNavContainer {
     margin-right: 20px;
+    align-items: center;
 }
 
 .loginNavContainer > p {
     font-size: 15px;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .loginSymbol {
@@ -332,6 +334,10 @@ nav a {
     
 }
 
+.emptyCartText {
+    padding: 100px 0 200px 0;
+}
+
 
 
 /*---- cart-purchase ----- */
@@ -348,6 +354,9 @@ nav a {
     cursor: pointer;
 }
 
+.previousOrders {
+    display: none;
+}
 
 .line{
     display:block; 
@@ -371,10 +380,10 @@ nav a {
 /*----- previous-orders-------*/
 
 .previous-orders-container {
-   display: flex;
-   flex-direction: column;
-   
-   
+    display: flex;
+    flex-direction: column;
+
+
 
 }
 /* the contianer for the items */
@@ -384,7 +393,7 @@ nav a {
     padding: 30px;
     border-bottom: 1px black solid;
     flex-direction: column;
-       
+
 }
 .previous-orders-items:nth-child(even){
     background-color: rgba(0, 0, 0, 0.103);
@@ -429,8 +438,10 @@ nav a {
         padding: 10px;
     } 
     .previous-orders-item-conatiner {
-        padding: 0px;
-        margin: 0px;
+        margin: 0;
+        padding: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
     .previous-orders-items h1 {
         font-size: 20px;
@@ -447,7 +458,6 @@ nav a {
     .product-item h1 { font-size: 30px; padding: 0;}
     .product-item h2 { font-size: 15px; padding: 0;}
     .product-container { 
-        justify-content: unset;
         min-height: 0;
         padding: 10px;
     } 
@@ -475,5 +485,45 @@ nav a {
     .previous-orders-items p {
         width: 100%;
     }
+
+    .cartNavContainer {
+        width: 106px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        padding: 10px;
+    }
     
+    .loginNavContainer{
+        width: 106px;
+        margin: 0;
+        margin-bottom: 10px;
+        padding-top: 5px;
+        justify-content: flex-end;
+    }
+    
+    .cartNavContainer i {
+        font-size: 18px;
+        margin-right: 0;
+    }
+    
+    .cartNavContainer p {
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        margin-left: 10px;
+    }
+
+    .cartSymbol i {
+        font-size: 18px;
+    }
+
+    #addToCartNumber {
+        font-size: 15px;
+    }
+
+    .previous-orders-item-conatiner {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
 }

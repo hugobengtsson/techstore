@@ -144,6 +144,7 @@ function loadCart(){
 
             // Rendering text
             let cartIsEmptyText = document.createElement('h1')
+            cartIsEmptyText.classList.add("emptyCartText")
             cartIsEmptyText.innerText = 'Varukorgen är tom'
 
             // Resetting the container for total price
@@ -185,6 +186,9 @@ function loadCart(){
 
             // Checks if the list for previous orders exists
             if (previousOrders){
+
+                // Displaying the "previousOrders" block if there are any previous orders to display
+                document.getElementsByClassName("previousOrders")[0].style.display = "block"
 
                 // Looping out the previous orders
                 previousOrders.forEach((orders) =>{
