@@ -163,7 +163,7 @@ function changeQuantity(product, action, productMinusQuantity){
             cart[foundIndex].quantity = cart[foundIndex].quantity - 1
         }
     }
-    console.log(cart)
+
     localStorage.setItem("cart", JSON.stringify(cart))
     addTotalPrice()
     addQuantity()
@@ -217,7 +217,8 @@ function cartPurchase(){
 
             }else{
 
-                accounts[foundIndex].previousOrders = cart
+                accounts[foundIndex].previousOrders = [cart]
+
                 localStorage.setItem("accounts", JSON.stringify(accounts))
 
             }
