@@ -190,7 +190,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    z-index: 1;
 }
 
 nav div {
@@ -221,7 +221,7 @@ header {
 .cartNavContainer {
     display: flex;
     align-items: center;
-    
+      
 }
 
 nav a {
@@ -231,7 +231,6 @@ nav a {
 
 .loginNavContainer {
     margin-right: 20px;
-
 }
 
 .loginNavContainer > p {
@@ -350,40 +349,76 @@ nav a {
     cursor: pointer;
 }
 
+
+.line{
+    display:block; 
+    width:100%;
+    border-bottom:1px solid rgba(0, 0, 0, 0.479);
+    margin-top:25px;
+    margin-bottom: 40px;
+    text-align:center;
+    
+}
+.line h2 {
+    font-size: 40px;
+    text-align:center;
+    position:relative;
+    top:25px;
+    padding:0 15px; 
+    display:inline-block;
+    background:white;
+    
+}
 /*----- previous-orders-------*/
 
 .previous-orders-container {
- display: flex;
- flex-wrap: wrap;
+   display: flex;
+   flex-direction: column;
+   
+   
+
 }
 /* the contianer for the items */
 .previous-orders-item-conatiner {
     display: flex;
     margin: 30px;
     padding: 30px;
-    border: 4px black solid;
-    border-radius: 30px;
-  
+    border-bottom: 1px black solid;
+    flex-direction: column;
+       
+}
+.previous-orders-items:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.103);
+    
 }
 
 .previous-orders-items {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    
-    align-items: center;
-    border: 1px black solid;
+    align-items: center; 
+    padding: 10px;
+    justify-content: space-around;
     
 }
 
 .previous-orders-items img {
-    height: 200px;
+    height: 100px;
+    object-fit: contain;
+    width: 25%;
 }
 
-..previous-orders-items h1 {
-    font-size: 10px;
+.previous-orders-items h1 {
+    font-size: 25px;
+    width: 25%;
 }
 
+.previous-orders-items p {
+    font-size: 20px;
+    width: 25%;
+}
+
+.previous-orders-quantity-contianer {
+    
+}
 
 @media screen and (max-width: 768px) {
     .product-item img {max-height: 500px;}
@@ -394,6 +429,18 @@ nav a {
         min-height: 100vh;
         padding: 10px;
     } 
+    .previous-orders-item-conatiner {
+        padding: 0px;
+        margin: 0px;
+    }
+    .previous-orders-items h1 {
+        font-size: 20px;
+    }
+    
+    .previous-orders-items p {
+        font-size: 15px;
+    }
+    
 }
 
 @media screen and (max-width: 400px) {
@@ -405,4 +452,29 @@ nav a {
         min-height: 0;
         padding: 10px;
     } 
+    .previous-orders-item-conatiner {
+        padding: 0px;
+        margin: 0px;
+    }
+    .line h2 {
+        font-size: 30px;
+        top:20px;
+    }
+    .previous-orders-items {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;     
+    }
+    .previous-orders-items img {   
+        width: 100%;
+    }
+    
+    .previous-orders-items h1 {
+        width: 100%;
+    }
+    
+    .previous-orders-items p {
+        width: 100%;
+    }
+    
 }

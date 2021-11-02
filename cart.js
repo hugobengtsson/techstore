@@ -164,17 +164,14 @@ function loadCart(){
                 
                     let previousOrdersPrice = document.createElement('p')
                     previousOrdersPrice.innerText = orderItems.product.price + ' kr'
-                
-                    let previousOrdersQuantityContainer = document.createElement('div')
-                    previousOrdersQuantityContainer.classList.add('previous-orders-quantity-contianer')
-                
+               
                     let previousOrdersProductQuantity = document.createElement('p')
                     previousOrdersProductQuantity.innerText = orderItems.quantity + ' st'
 
                     previousOrdersContainer.append(previousOrdersItemConatiner)
                     previousOrdersItemConatiner.append(previousOrdersItems)
-                    previousOrdersItems.append(previousOrdersImage, previousOrdersTitle, previousOrdersPrice, previousOrdersQuantityContainer)
-                    previousOrdersQuantityContainer.append(previousOrdersProductQuantity)
+                    previousOrdersItems.append(previousOrdersImage, previousOrdersTitle, previousOrdersPrice, previousOrdersProductQuantity)
+                    
                     
                })
             })}
