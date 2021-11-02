@@ -23,14 +23,11 @@ let initSite = () => {
     addQuantity()
     loggedIn()
     eventListeners()
-    // This would also be a good place to initialize other parts of the UI
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
     
-    //openLoginDiv()
-    // Check your console to see that the products are stored in the listOfProducts varible.
     let imgSrc = "/assets/"
     let productContainer = document.getElementsByClassName("data-product-container")[0];
 
@@ -92,11 +89,6 @@ function addProductsToWebpage() {
 
     });
 
-    // Add your code here, remember to brake your code in to smaller function blocks
-    // to reduce complexity and increase readability. Each function should have
-    // an explainetory comment like the one for this function, see row 22.
-    
-    // TODO: Remove the console.log and these comments when you've read them.
 }
 
 

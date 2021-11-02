@@ -217,7 +217,7 @@ function changeQuantity(product, action, productMinusQuantity){
             cart[foundIndex].quantity = cart[foundIndex].quantity - 1
         }
     }
-    console.log(cart)
+
     localStorage.setItem("cart", JSON.stringify(cart))
     addTotalPrice()
     addQuantity()
