@@ -128,6 +128,60 @@ function loadCart(){
             cartIsEmptyContainer.append(cartIsEmptyText)
             cartContainer.append(cartIsEmptyContainer)
     }
+    
+    
+    let previousOrdersContainer = document.getElementsByClassName("previous-orders-container")[0]
+    previousOrdersContainer.innerHTML = ""
+    let loggedInKey = JSON.parse(localStorage.getItem("loggedIn"))
+    // om loggedin = true
+    if(loggedInKey){
+
+        if(loggedInKey.loggedIn == true){
+
+            let user = loggedInKey.username
+
+            let accounts = JSON.parse(localStorage.getItem("accounts"))
+            console.log(accounts)
+
+            let foundIndex = accounts.findIndex(account => account.username == user)
+
+            let previousOrders = accounts[foundIndex].previousOrders
+            
+            if (previousOrders){
+            previousOrders.forEach((orders) =>{
+                 let previousOrdersItemConatiner = document.createElement('div')
+                 previousOrdersItemConatiner.classList.add('previous-orders-item-conatiner')  
+                orders.forEach((orderItems)=> {
+                      
+                    let previousOrdersItems = document.createElement('div')
+                    previousOrdersItems.classList.add('previous-orders-items')
+                
+                    let previousOrdersTitle = document.createElement('h1')
+                    previousOrdersTitle.innerText = orderItems.product.title
+                
+                    let previousOrdersImage = document.createElement('img')
+                    previousOrdersImage.src = imgSrc + orderItems.product.image
+                
+                    let previousOrdersPrice = document.createElement('p')
+                    previousOrdersPrice.innerText = orderItems.product.price + ' kr'
+                
+                    let previousOrdersQuantityContainer = document.createElement('div')
+                    previousOrdersQuantityContainer.classList.add('previous-orders-quantity-contianer')
+                
+                    let previousOrdersProductQuantity = document.createElement('p')
+                    previousOrdersProductQuantity.innerText = orderItems.quantity + ' st'
+
+                    previousOrdersContainer.append(previousOrdersItemConatiner)
+                    previousOrdersItemConatiner.append(previousOrdersItems)
+                    previousOrdersItems.append(previousOrdersImage, previousOrdersTitle, previousOrdersPrice, previousOrdersQuantityContainer)
+                    previousOrdersQuantityContainer.append(previousOrdersProductQuantity)
+                    
+               })
+            })}
+        }   
+    }
+
+
 
 }
 
@@ -200,7 +254,7 @@ function cartPurchase(){
             let user = loggedInKey.username
 
             let accounts = JSON.parse(localStorage.getItem("accounts"))
-            
+
             let cart = JSON.parse(localStorage.getItem("cart"))
 
             let foundIndex = accounts.findIndex(account => account.username == user)
@@ -217,7 +271,8 @@ function cartPurchase(){
 
             }else{
 
-                accounts[foundIndex].previousOrders = cart
+                accounts[foundIndex].previousOrders = [cart]
+
                 localStorage.setItem("accounts", JSON.stringify(accounts))
 
             }
