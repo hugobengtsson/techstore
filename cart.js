@@ -38,15 +38,30 @@ function loadCart(){
     let cartPurchaseIcon = document.createElement('i')
     cartPurchaseIcon.classList.add('fas', 'fa-check')
 
-    // Adding test to the purchase button
+    // Adding text to the purchase button
     let cartPurchaseText = document.createElement('p')
     cartPurchaseText.innerText = 'Slutför ditt köp'
     
     // Eventlistener for a click on the purchase button
     cartPurchaseButton.addEventListener('click', function() {
-        cartPurchase();
+       document.getElementsByClassName('confirm-purchase-contianer')[0].style.display = "flex"
+
     })
 
+    // Eventlistener for confirme your purchase
+    document.getElementsByClassName('confirme-form-buy')[0].addEventListener('click', function(){
+        document.getElementsByClassName('confirm-purchase-contianer')[0].style.display = "none"
+        cartPurchase()
+
+    })
+
+    // Eventlistener for abort your purchase button
+    document.getElementsByClassName('confirme-form-abort')[0].addEventListener('click', function(){
+        document.getElementsByClassName('confirm-purchase-contianer')[0].style.display = "none"
+         }   
+    )  
+   
+    ///
     // Appending the icon and text to the purchase button
     cartPurchaseButton.append(cartPurchaseIcon, cartPurchaseText)
 
@@ -136,26 +151,26 @@ function loadCart(){
 
     }
     else{
-            // If the cart does not exist
+        // If the cart does not exist
 
-            // Rendering element for empty cart
-            let cartIsEmptyContainer = document.createElement('div')
-            cartIsEmptyContainer.classList.add('product-cart-container')
+        // Rendering element for empty cart
+        let cartIsEmptyContainer = document.createElement('div')
+        cartIsEmptyContainer.classList.add('product-cart-container')
 
-            // Rendering text
-            let cartIsEmptyText = document.createElement('h1')
-            cartIsEmptyText.classList.add("emptyCartText")
-            cartIsEmptyText.innerText = 'Varukorgen är tom'
+        // Rendering text
+        let cartIsEmptyText = document.createElement('h1')
+        cartIsEmptyText.classList.add("emptyCartText")
+        cartIsEmptyText.innerText = 'Varukorgen är tom'
 
-            // Resetting the container for total price
-            cartTotalPriceContainer.innerText = ''
+        // Resetting the container for total price
+        cartTotalPriceContainer.innerText = ''
 
-            // Resetting the purchase button
-            cartPurchaseButton = ''
+        // Resetting the purchase button
+        cartPurchaseButton = ''
 
-            // Appending the rendered elements to the parent elements
-            cartIsEmptyContainer.append(cartIsEmptyText)
-            cartContainer.append(cartIsEmptyContainer)
+        // Appending the rendered elements to the parent elements
+        cartIsEmptyContainer.append(cartIsEmptyText)
+        cartContainer.append(cartIsEmptyContainer)
     }
 
     // Variable for the container to render previous orders
