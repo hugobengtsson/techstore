@@ -66,7 +66,7 @@ p {
 }
 
 .loginContainer {
-    display: flex;
+    display: none;
     position: fixed;
     left: 0;
     top: 0;
